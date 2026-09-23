@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="om">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dhugaa-Qorannaa</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #172033;
+    }
+
+    header {
+      background: #123c69;
+      color: white;
+      padding: 25px 18px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    header p {
+      margin: 8px 0 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .search-box {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 25px;
+    }
+
+    .search-box input {
+      flex: 1;
+      padding: 14px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .search-box button {
+      padding: 14px 18px;
+      border: none;
+      border-radius: 8px;
+      background: #123c69;
+      color: white;
+      font-weight: bold;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 20px;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 7px 10px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .verified {
+      background: #d9f7df;
+      color: #18752c;
+    }
+
+    .reported {
+      background: #fff1c7;
+      color: #8a6500;
+    }
+
+    .unverified {
+      background: #ffdede;
+      color: #a00000;
+    }
+
+    .disputed {
+      background: #ffe2c2;
+      color: #9a4d00;
+    }
+
+    footer {
+      margin-top: 30px;
+      padding: 20px;
+      text-align: center;
+      background: #172033;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Dhugaa-Qorannaa</h1>
+    <p>Seenaa, taateewwan fi qorannoo ragaa irratti hundaa'e</p>
+  </header>
+
+  <main class="container">
+
+    <div class="search-box">
+      <input type="text" id="searchInput"
+             placeholder="Nama, taatee, bakka ykn bara barbaadi...">
+      <button onclick="search()">Barbaadi</button>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <h2>👤 Namoota</h2>
+        <p>Namoota fi seenaa isaanii ragaa irratti hundaa'uun qoradhu.</p>
+      </div>
+
+      <div class="card">
+        <h2>📅 Taateewwan</h2>
+        <p>Taateewwan darban, kan yeroo ammaa fi odeeffannoo fuulduraa qoradhu.</p>
+      </div>
+
+      <div class="card">
+        <h2>📍 Bakka</h2>
+        <p>Bakka taateen itti raawwatame fi odeeffannoo isaa ilaali.</p>
+      </div>
+
+      <div class="card">
+        <h2>📚 Ragaa</h2>
+        <p>Dokumeentii, suuraa, viidiyoo fi maddoota ragaa walitti qabi.</p>
+      </div>
+
+    </div>
+
+    <div class="card" style="margin-top:20px;">
+      <h2>🔎 Sirna Mirkaneessaa</h2>
+
+      <p>
+        <span class="status verified">🟢 VERIFIED</span>
+        Ragaan gahaan jira.
+      </p>
+
+      <p>
+        <span class="status reported">🟡 REPORTED</span>
+        Odeeffannoo gabaafame; ammallee qorannoo barbaada.
+      </p>
+
+      <p>
+        <span class="status unverified">🔴 UNVERIFIED</span>
+        Ragaan gahaan hin mirkanoofne.
+      </p>
+
+      <p>
+        <span class="status disputed">⚠️ DISPUTED</span>
+        Maddoonni ykn ragaan wal faallaa jiru.
+      </p>
+    </div>
+
+    <div id="result" class="card" style="margin-top:20px; display:none;">
+      <h2>Bu'aa Barbaacha</h2>
+      <p id="resultText"></p>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Dhugaa-Qorannaa</p>
+    <p>Qorannoo • Ragaa • Mirkaneessa</p>
+  </footer>
+
+  <script>
+    function search() {
+      const input = document.getElementById("searchInput").value;
+      const result = document.getElementById("result");
+      const resultText = document.getElementById("resultText");
+
+      result.style.display = "block";
+
+      if (input.trim() === "") {
+        resultText.textContent = "Maal barbaaduu akka barbaaddu barreessi.";
+      } else {
+        resultText.textContent =
+          "Barbaacha: " + input +
+          " — sirni barbaachaa bal'aan gara fuulduraatti ni dabalama.";
+      }
+    }
+  </script>
+
+</body>
+</html>
